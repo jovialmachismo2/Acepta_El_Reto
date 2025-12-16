@@ -4,10 +4,7 @@ import java.util.Scanner;
 
 public class Los_Bocadillos_Mejorado {
     static Scanner teclado;
-    /**
-     * Solo muestra los resultados de los modos del programa
-     * @param args
-     */
+
     public static void main(String[] args) {
         teclado = new Scanner(System.in);
         int corteza = 1;
@@ -23,8 +20,8 @@ public class Los_Bocadillos_Mejorado {
                 System.out.println(modo2(bocadillo));
             }
         }
-        System.out.println("¡¡FIIIIN!!");
-        System.out.println("No quedan cortezas no se puede seguir");
+        System.out.println("¡¡FIIIIIINNN!!!");
+        System.out.println("Ya no quedan mas cortezas");
     }
 
     /**
@@ -50,13 +47,12 @@ public class Los_Bocadillos_Mejorado {
     }
 
     /**
-     *Le pide al usuario que introduzca los trozitos para formar el bocadillo
+     * Le pide al usuario que introduzca los trozitos para formar el bocadillo
      *
      * Una ves que los introduce el usuario los pasa a entero
      * @param corteza son las cantidad de trozitos que el usuario debe introducir
      * @return Devuelve un Array de entero de los trozitos que que introdujo el usuario
      */
-
     public static int[] pedir_bocadillo(int corteza) {
         boolean letra = true;
         volver:
@@ -74,7 +70,7 @@ public class Los_Bocadillos_Mejorado {
                     try {
                         pasar_int_bocadillo[i] = Integer.parseInt(bocadillos[i]);
                         if (pasar_int_bocadillo[i] <= 0) {
-                            System.out.println("Los trozitos solo pueden ser positivos");
+                            System.out.println("Los trozitos solo puedes ser positivos");
                             continue volver;
                         }
                         letra = false;
@@ -119,3 +115,4 @@ public class Los_Bocadillos_Mejorado {
         return valido;
     }
 }
+
