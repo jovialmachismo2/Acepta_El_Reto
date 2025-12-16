@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 public class Los_Bocadillos_Mejorado {
     static Scanner teclado;
-
+    /**
+     * Solo muestra los resultados de los modos del programa
+     * @param args
+     */
     public static void main(String[] args) {
         teclado = new Scanner(System.in);
         int corteza = 1;
@@ -20,8 +23,17 @@ public class Los_Bocadillos_Mejorado {
                 System.out.println(modo2(bocadillo));
             }
         }
+        System.out.println("¡¡FIIIIN!!");
+        System.out.println("No quedan cortezas no se puede seguir");
     }
 
+    /**
+     * Este modo es para solicitar al usuario el numero de cortezas del hormiguero
+     *
+     * y si el usuario un formato no valido lo repite hasta que el usuario introduzca el valor numerico valido
+     *
+     * @return Numero de cortezas que puso el usuario
+     */
     public static int pedir_corteza() {
         while (true) {
             System.out.println("Indica el numero de cortezas que hay en el hormiguero");
@@ -36,6 +48,14 @@ public class Los_Bocadillos_Mejorado {
             return corteza;
         }
     }
+
+    /**
+     *Le pide al usuario que introduzca los trozitos para formar el bocadillo
+     *
+     * Una ves que los introduce el usuario los pasa a entero
+     * @param corteza son las cantidad de trozitos que el usuario debe introducir
+     * @return Devuelve un Array de entero de los trozitos que que introdujo el usuario
+     */
 
     public static int[] pedir_bocadillo(int corteza) {
         boolean letra = true;
@@ -53,6 +73,10 @@ public class Los_Bocadillos_Mejorado {
                 for (int i = 0; i < bocadillos.length; i++) {
                     try {
                         pasar_int_bocadillo[i] = Integer.parseInt(bocadillos[i]);
+                        if (pasar_int_bocadillo[i] <= 0) {
+                            System.out.println("Los trozitos solo pueden ser positivos");
+                            continue volver;
+                        }
                         letra = false;
                     } catch (Exception e) {
                         System.out.println("¡ERROR! Solo puedes escribir numeros no letras");
@@ -67,6 +91,13 @@ public class Los_Bocadillos_Mejorado {
         return new int[0];
     }
 
+    /**
+     * Comprueba si el bocadillo es valido y avisa si se puede comer
+     * suma los numeros de la derecha y si la suma de los numeros coincide con el de la izquierda nos muestra el si es valido y la posicion del numero
+     * Si la suma no coincide con ningun numero pues NO
+     * @param pasar_int_bocadillo Es el array con los tamaños de los trozitos
+     * @return SI pos"Si el bocadillo es valido y la posicion de la tapa"; NO "El bocadillo no es valido"
+     */
     public static String modo2(int[] pasar_int_bocadillo) {
         int suma = 0;
         int pos = 0;
