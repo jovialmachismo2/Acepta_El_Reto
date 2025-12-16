@@ -38,7 +38,7 @@ public class Los_Bocadillos_Mejorado {
             String linea = teclado.nextLine();
 
             if (!linea.matches("\\d{1,2}")) {
-                System.out.println("¡ERROR! Solo puede escribir un numero");
+                System.out.println("¡ERROR! formato del numero incorrecto");
                 continue;
             }
             int corteza = Integer.parseInt(linea);
@@ -71,6 +71,7 @@ public class Los_Bocadillos_Mejorado {
                         pasar_int_bocadillo[i] = Integer.parseInt(bocadillos[i]);
                         if (pasar_int_bocadillo[i] <= 0) {
                             System.out.println("Los trozitos solo puedes ser positivos");
+                            letra = true;
                             continue volver;
                         }
                         letra = false;
